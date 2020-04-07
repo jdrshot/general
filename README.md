@@ -5,3 +5,4 @@ A repo containing cheat-sheets, scripts and other basic things that I always for
 
 - [Markdown](cheat-sheets/markdown.md)
 - [Regular Expressions](cheat-sheets/regular-expressions.md)
+- [Vim](cheat-sheets/vim.md)
