@@ -1,0 +1,9 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=2000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+# Load tmux
+if [ "$TMUX" = "" ]; then tmux; fi
