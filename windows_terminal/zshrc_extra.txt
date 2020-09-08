@@ -7,3 +7,8 @@ bindkey -e
 
 # Load tmux
 if [ "$TMUX" = "" ]; then tmux; fi
+
+
+
+cd ~
+if [ "$TMUX" = "" ]; then tmux; fi

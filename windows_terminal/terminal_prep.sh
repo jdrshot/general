@@ -1,7 +1,5 @@
 #!/bin/bash
 
-HOME_DIR_BACK=$HOME
-
 if [ `whoami` != 'root' ] ; then
 	echo "Run as root (in case installs are necessary)"
 	exit
@@ -23,7 +21,6 @@ else
 	echo $'DONE'
 fi
 
-echo "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-HOME=$HOME_DIR_BACK
+echo "Install oh-my-zsh with the following command (not as root!)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
