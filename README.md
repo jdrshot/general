@@ -4,6 +4,7 @@ A repo containing cheat-sheets, scripts and other basic things that I always for
 ## CHEAT CHEATS
 
 - [Markdown](cheat-sheets/markdown.md)
+- [PowerShell](cheat-sheets/powershell.md)
 - [Regular Expressions](cheat-sheets/regular-expressions.md)
 - [Vim](cheat-sheets/vim.md)
 
@@ -14,3 +15,7 @@ A repo containing cheat-sheets, scripts and other basic things that I always for
 ## Scripts
 
 - [Update Plex container (docker)](scripts/docker_plex_update.sh)
+
+## Config files
+
+- [Windows terminal](windows_terminal/)
