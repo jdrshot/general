@@ -3,6 +3,7 @@ A repo containing cheat-sheets, scripts and other basic things that I always for
 
 ## CHEAT CHEATS
 
+- [Common Linux commands](cheat-sheets/linux-commands.md)
 - [Markdown](cheat-sheets/markdown.md)
 - [PowerShell](cheat-sheets/powershell.md)
 - [Regular Expressions](cheat-sheets/regular-expressions.md)
