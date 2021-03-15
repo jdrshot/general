@@ -1,21 +1,33 @@
 ﻿$LogFile = "test.log"
 
-function Initiate-Log {
+function Initiate-Log 
+{
     [CmdletBinding()]
     param(
         [ValidateNotNullOrEmpty()]
-        [String]$Name
+        [String]$Name,
+
+        [Parameter()]
+        [switch]$Override
     )
 
-    If(-Not (Test-Path -Path ".\logs\$Name")){
-        If(-Not (Test-Path -Path '.\logs')){
+    If(-Not (Test-Path -Path ".\logs\$Name"))
+    {
+        If(-Not (Test-Path -Path '.\logs'))
+        {
             [void](New-Item -Path '.' -Name 'logs' -ItemType 'directory')
         }
         [void](New-Item -Path 'logs' -Name $Name -ItemType 'file')
     }
+    
+    If($Override)
+    {
+        Clear-Content ".\logs\$Name"
+    }
 }
 
-function Write-Log {
+function Write-Log 
+{
     [CmdletBinding()]
     param(
         [Parameter()]
@@ -32,5 +44,5 @@ function Write-Log {
     Add-Content -Path (".\logs\" + $LogFile) -Value "$Date [$Severity] $Message"
 }
 
-Initiate-Log -Name $LogFile
+Initiate-Log -Name $LogFile -Override
 Write-Log -Severity ERROR -Message "Finished"
