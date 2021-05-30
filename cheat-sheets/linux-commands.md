@@ -91,3 +91,16 @@ Display USB devices
 ```
 lsusb -tv
 ```
+
+
+## Performance Monitoring and Statistics
+
+Display and manage the top processes
+```
+top
+```
+
+Interactive process viewer
+```
+htop
+```
