@@ -1,0 +1,79 @@
+ENABLE FEATURES
+---------------
+enable ns feature <feature>
+
+> enable ns feature WL
+ Done
+> enable ns feature LB
+ Done
+> enable ns feature CS
+ Done
+
+
+ADD ROUTE
+---------
+add route <ip> <subnet> <SNIP>
+
+ADD SERVER
+----------
+add server <name> <ipAddress>
+
+> add server la-bookstack-01 192.168.7.36
+ Done
+
+
+ADD SERVICE
+-----------
+add service <name> <server> <serviceType> <port>
+
+> add service la-bookstack-01_wiki la-bookstack-01 http 80
+ Done
+
+
+ADD LOAD BALANCING VSERVER
+--------------------------
+add lb vserver <name> <servicetype>
+
+> add lb vserver lb_la-bookstack-01_wiki http
+ Done
+
+
+BIND SERVICE TO LOAD BALANCING VSERVER
+--------------------------------------
+bind lb vserver <name> <service> [-priority <positiveInteger>]
+
+> bind lb vserver lb_la-bookstack-01_wiki la-bookstack-01_wiki
+ Done
+
+
+ADD CONTENT SWITCHING VSERVER
+-----------------------------
+add cs vserver <name> <servicetype> <ipAddress> <port>
+
+> add cs vserver cs_nsvpx_http http 192.168.7.99 80
+ Done
+
+
+ADD CONTENT SWITCHING ACTION
+----------------------------
+add cs action <name> -targetLBVserver <lb_vserver>
+
+> add cs action cs_act_la-bookstack-01_wiki -targetLBVserver lb_la-bookstack-01_wiki
+ Done
+
+
+ADD CONTENT SWITCHING POLICIES
+------------------------------
+add cs policy <name> -rule <rule> -action <action>
+
+> add cs policy cs_pol_la-bookstack-01_wiki -rule "HTTP.REQ.HOSTNAME.EQ(\"wiki.local.com\")" -action cs_act_la-bookstack-01_wiki
+ Done
+
+
+BIND CONTENT SWITCHING POLICY TO CONTENT SWITCHING VSERVER
+----------------------------------------------------------
+bind cs vserver <cs_vserver> -policyName <cs_policy> -priority <positive_integer>
+
+> bind cs vserver cs_nsvpx_http -policyName cs_pol_la-bookstack-01_wiki -priority 100
+ Done
+
