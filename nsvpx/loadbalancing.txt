@@ -1,0 +1,8 @@
+LOAD BALANCING SETUP
+--------------------
+
+Create server
+Create service
+Create virtual server
+	Virtual server gets a VIP (instead of 0.0.0.0)
+Bind service to virtual server
