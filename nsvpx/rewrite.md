@@ -31,10 +31,10 @@ Undo config
 
 Add config 
 ```
-> add rewrite action rw_act_host_header replace http.req.header.host("Host") "\"<host_value>\""
+> add rewrite action rw_act_host_header replace http.req.header.host("<header>") "\"<host_value>\""
  Done
-> add rewrite policy rw_pol_host_header "HTTP.REQ.HEADER(\"Host\").EXISTS" rw_act_host_header
+> add rewrite policy rw_pol_host_header "HTTP.REQ.HEADER(\"<header>\").EXISTS" rw_act_host_header
  Done
-> bind lb vserver <lb_vserver_name> -policyName rw_act_host_header> -priority <prio> -gotoPriorityExpression NEXT -type REQUEST
+> bind lb vserver <lb_vserver_name> -policyName rw_act_host_header -priority <prio> -gotoPriorityExpression NEXT -type REQUEST
  Done
 ```
